@@ -1,5 +1,6 @@
 #!/bin/sh
 vlmcsd-bin -D -d &
-playit --secret "$PLAYIT_SECRET_KEY" run &
+export SECRET_KEY="${PLAYIT_SECRET_KEY:-$SECRET_KEY}"
+playit --secret "$SECRET_KEY" &
 PORT=${PORT:-10000}
 python3 -m http.server "$PORT"

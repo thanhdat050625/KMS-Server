@@ -1,5 +1,5 @@
 #!/bin/sh
-vlmcsd-bin -D -d &
+vlmcsd-bin -D -e -v -L 0.0.0.0:1688 &
 export SECRET_KEY="${PLAYIT_SECRET_KEY:-$SECRET_KEY}"
 playit --secret "$SECRET_KEY" &
 
